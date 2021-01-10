@@ -13,6 +13,8 @@ namespace WinFormDataDetails
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        private List<DokHandlowy> _dok = DocFile.GetDocuments();
+
         public Form()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace WinFormDataDetails
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var Doc = UseData.GetData().ToList();
+            var Doc = _dok.ToList();
 
             foreach (DokHandlowy d in Doc)
             {

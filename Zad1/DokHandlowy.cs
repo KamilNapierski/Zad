@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Zad1
 {
     public class DokHandlowy
     {
+
         public int ID { get; set; }
         public string Numer { get; set; }
         public DateTime Data { get; set; }
@@ -17,7 +19,9 @@ namespace Zad1
             {
                 return this.Pozycje != null ? this.Pozycje.Sum(p => p.Cena) : 0;
             }
+            set { }
         }
+       
     }
 
 }

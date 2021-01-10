@@ -11,18 +11,20 @@ namespace ConsoleData
     {
         static void Main(string[] args)
         {
-            var doc = UseData.GetData().OrderByDescending(p => p.KwotaDokumentu).ToList();
-            foreach (DokHandlowy d in doc)
-            {
-                Console.WriteLine(string.Format("ID: {0}  Nazwa kontrahenta: {1}  Kwota: {2}",
-                                                d.ID,
-                                                d.Kontrahent.Nazwa,
-                                                d.KwotaDokumentu));
+            List<DokHandlowy> _dok = DocFile.GetDocuments();
 
+            var doc = _dok.OrderByDescending(p => p.KwotaDokumentu).ToList();
 
-
-            }
-            Console.ReadKey();
+                foreach (DokHandlowy d in doc)
+                {
+                    Console.WriteLine(string.Format("ID: {0}  Nazwa kontrahenta: {1}  Kwota: {2}",
+                                                    d.ID,
+                                                    d.Kontrahent.Nazwa,
+                                                    d.KwotaDokumentu));
+                }
+            
+            
+                Console.ReadKey();
         }
     }
 }

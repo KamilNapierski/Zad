@@ -13,6 +13,8 @@ namespace WinFormDataDetails
 {
     public partial class Form2 : System.Windows.Forms.Form
     {
+        private List<DokHandlowy> _dok = DocFile.GetDocuments();
+
         public Form2()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace WinFormDataDetails
         }
         internal void LoadOrders(string IID)
         {
-            var Doc = UseData.GetData().Where(p => p.Kontrahent.Nazwa == IID).ToList();
+            var Doc = _dok.Where(p => p.Kontrahent.Nazwa == IID).ToList();
 
             var SubListNames = Doc.Select(x => x.Pozycje)
                    .SelectMany(x => x)

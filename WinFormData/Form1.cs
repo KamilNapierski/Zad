@@ -13,6 +13,8 @@ namespace WinFormData
 {
     public partial class Form1 : Form
     {
+        private List<DokHandlowy> _dok = DocFile.GetDocuments();
+
         public Form1()
         {
            InitializeComponent();
@@ -31,7 +33,7 @@ namespace WinFormData
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var Doc = UseData.GetData().OrderByDescending(p => p.KwotaDokumentu).ToList();
+            var Doc = _dok.OrderByDescending(p => p.KwotaDokumentu).ToList();
 
             foreach (DokHandlowy d in Doc)
             {
@@ -54,7 +56,7 @@ namespace WinFormData
           
 
                 int take = Convert.ToInt32(numericUpDown1.Value);
-                var Doc = UseData.GetData().OrderByDescending(p => p.KwotaDokumentu).ToList().Take(take);
+                var Doc = _dok.OrderByDescending(p => p.KwotaDokumentu).ToList().Take(take);
 
                     foreach (DokHandlowy d in Doc)
                     {
