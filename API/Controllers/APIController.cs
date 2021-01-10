@@ -21,7 +21,7 @@ namespace API.Controllers
 
 
         [HttpGet("/dokumenty")]
-         public object GetDocAndSum()
+         public IActionResult GetDocAndSum()
         {
 
 
@@ -42,7 +42,7 @@ namespace API.Controllers
         }
 
         [HttpGet("/dokumenty/{idDokumentu}")]
-        public ActionResult GetDocById(int idDokumentu)
+        public IActionResult GetDocById(int idDokumentu)
         {
             var DocById =  _dok.FirstOrDefault(p=>p.ID == idDokumentu);
             
